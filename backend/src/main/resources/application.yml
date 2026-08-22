@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: food-delivery
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/online-food-ordering}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:ranjith123@}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:tranjith0407@gmail.com}
+    password: "${MAIL_PASSWORD:kamxpglvhajieyqa}"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        debug: false
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  mail:
+    from: ${MAIL_FROM:tranjith0407@gmail.com}
+    sender-name: ${MAIL_SENDER_NAME:FoodRush}
+  jwt:
+    secret: ${JWT_SECRET:FoodRushSuperSecretKeyThatIsLongEnoughForHmacSha256AlgorithmAndMoreSafe2026}
+    expiration: ${JWT_EXPIRATION:86400000}
+
+logging:
+  level:
+    com.fooddeliver: INFO
+    org.springframework.security: WARN
