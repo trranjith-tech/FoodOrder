@@ -1,0 +1,3 @@
+@echo off
+echo Starting FoodRush Frontend (React + Vite)...
+npm run dev
